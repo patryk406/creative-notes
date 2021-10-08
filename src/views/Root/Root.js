@@ -1,12 +1,17 @@
-import Button from 'components/Button/Button'
+import { ThemeProvider } from 'styled-components';
+import Card from 'components/molecules/Card/Card'
 import GlobalStyle from 'theme/GlobalStyle'
+import {theme} from 'theme/mainTheme'
+
 const Root=()=> {
   return (
     <div className="App">
       <GlobalStyle/>
-      <Button >close</Button>
-      <Button secondary>remove</Button>
-     hi
+      <ThemeProvider theme={theme}>
+        <>
+<Card/>
+      </>
+      </ThemeProvider>
     </div>
   );
 }
