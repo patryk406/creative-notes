@@ -13,6 +13,7 @@ html{
 }
 
 body {
+    padding-left:16rem;
     font-size:1.6rem;
     font-family: 'Noto Sans Display', sans-serif;
 }

@@ -1,23 +1,23 @@
-import styled,{css} from 'styled-components';
+import styled, { css } from "styled-components";
 
 const Button = styled.button`
-/* background-color:#7294f3; */
-background-color:${({theme})=>theme.note};
-border:none;
-border-radius:50px;
-width:150px;
-height:35px;
-font-size:1.6rem;
-text-transform:uppercase;
+  /* background-color:#7294f3; */
+  background-color: ${({ theme }) => theme.idea};
+  border: none;
+  border-radius: 50px;
+  width: 150px;
+  height: 35px;
+  font-size: 1.6rem;
+  text-transform: uppercase;
 
-${({secondary})=>(
-    secondary && css`
-background-color:${({theme})=>theme.grey200};
-width:80px;
-height:25px;
-font-size:1.3rem;
-    `
-)}
+  ${({ secondary }) =>
+    secondary &&
+    css`
+      background-color: ${({ theme }) => theme.grey200};
+      width: 80px;
+      height: 25px;
+      font-size: 1.3rem;
+    `}
 `;
 
 export default Button;
