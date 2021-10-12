@@ -1,7 +1,7 @@
 export const theme = {
-  creative: "#a19afb",
-  idea: "#f4b88e",
-  travel: "#b9ffe0",
+  creatives: "#a19afb",
+  ideas: "#f4b88e",
+  travels: "#b9ffe0",
   grey100: "#e2e2e2",
   grey200: "#d3d3d3",
   grey300: "#b8b8b8",

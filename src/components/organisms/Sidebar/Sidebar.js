@@ -21,7 +21,7 @@ const SidebarWrapper = styled.div`
   height: 100vh;
   width: 16rem;
   background-color: ${({ activeColor, theme }) =>
-    activeColor ? theme[activeColor] : theme.idea};
+    activeColor ? theme[activeColor] : theme.ideas};
 `;
 
 const StyledLogoLink = styled(NavLink)`
@@ -55,8 +55,7 @@ const Sidebar = ({ pageType }) => {
         <li>
           <ButtonIcon
             as={NavLink}
-            exact
-            to="/"
+            to="/ideas"
             icon={IdeaIcon}
             activeclass="active"
           />
@@ -64,7 +63,7 @@ const Sidebar = ({ pageType }) => {
         <li>
           <ButtonIcon
             as={NavLink}
-            to="/travel"
+            to="/travels"
             icon={TravelIcon}
             activeclass="active"
           />
@@ -72,7 +71,7 @@ const Sidebar = ({ pageType }) => {
         <li>
           <ButtonIcon
             as={NavLink}
-            to="/creative"
+            to="/creatives"
             icon={CreativeIcon}
             activeclass="active"
           />

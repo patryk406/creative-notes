@@ -1,14 +1,23 @@
 import styled, { css } from "styled-components";
+import { Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
+import { useState } from "react";
+
 import Paragraph from "components/atoms/Paragraph/Paragraph";
 import Button from "components/atoms/Button/Button";
 import Heading from "components/atoms/Heading/Heading";
-import Avatar1 from "assets/avatars/avatar3.png";
+
+import Merph from "assets/avatars/Merph.png";
+import Nareth from "assets/avatars/Nareth.png";
+import Osma from "assets/avatars/Osma.png";
+import Seth from "assets/avatars/Seth.png";
 import Bulb from "assets/icons/bulb.png";
+import SmokeIcon from "assets/icons/smoke.png";
+
 const CART_TYPE = {
-  note: "NOTE",
+  creatives: "CREATIVES",
   ideas: "IDEAS",
-  article: "ARTICLE",
+  travels: "TRAVELS",
 };
 
 const StyledWrapper = styled.div`
@@ -29,7 +38,6 @@ const InnerWrapper = styled.div`
   :first-of-type {
     z-index: 999;
   }
-
   ${({ flex }) =>
     flex &&
     css`
@@ -50,14 +58,24 @@ const StyledHeading = styled(Heading)`
 `;
 
 const StyledAvatar = styled.img`
-  height: 80px;
-  width: 80px;
-  border: 3px solid ${({ theme }) => theme.idea};
+  height: 8rem;
+  width: 8rem;
+  border: 0.3rem solid ${({ theme }) => theme.ideas};
   position: absolute;
   right: 2.5rem;
   top: 2.5rem;
   border-radius: 5rem;
 `;
+
+const StyledMagic = styled.img`
+  height: 5rem;
+  width: 5rem;
+  border: 0.3rem solid ${({ theme }) => theme.creatives};
+  position: absolute;
+  right: 2rem;
+  top: 4rem;
+`;
+
 const StyledBulbButton = styled.a`
   display: block;
   width: 4.7rem;
@@ -70,30 +88,42 @@ const StyledBulbButton = styled.a`
   background-size: 60%;
   background-position: 50%;
 `;
-const Card = ({ cardType }) => (
-  <StyledWrapper>
-    <InnerWrapper activeColor={cardType}>
-      <StyledHeading>Hello Patric</StyledHeading>
-      <DateInfo>9 August</DateInfo>
-      {cardType === "travel" && <StyledAvatar src={Avatar1} />}
-      {cardType === "idea" && <StyledBulbButton href="/" />}
-    </InnerWrapper>
-    <InnerWrapper flex>
-      <Paragraph>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati quos
-        aliquid iste nulla, suscipit molestias eos ea est porro nihil eveniet
-        laudantium. Natus exercitationem ex asperiores numquam ea, illo
-        voluptates?
-      </Paragraph>
-      <Button secondary>remove</Button>
-    </InnerWrapper>
-  </StyledWrapper>
-);
+const Card = (props) => {
+  const { id, cardType, title, created, travelName, content } = props;
+  const [redirect, setRedirect] = useState(false);
+  const handleCardClick = () => {
+    setRedirect(true);
+  };
+  if (redirect) {
+    return <Redirect to={`${cardType}/${id}`} />;
+  }
+
+  return (
+    <StyledWrapper onClick={handleCardClick}>
+      <InnerWrapper activeColor={cardType}>
+        <StyledHeading>{title}</StyledHeading>
+        <DateInfo>{created}</DateInfo>
+        {cardType === "travels" && <StyledAvatar src={travelName} />}
+        {cardType === "creatives" && <StyledMagic src={SmokeIcon} />}
+        {cardType === "ideas" && <StyledBulbButton href="/" />}
+      </InnerWrapper>
+      <InnerWrapper flex>
+        <Paragraph>{content}</Paragraph>
+        <Button secondary>remove</Button>
+      </InnerWrapper>
+    </StyledWrapper>
+  );
+};
 
 Card.propTypes = {
-  cardType: PropTypes.oneOf(["cretive", "idea", "travel"]),
+  cardType: PropTypes.oneOf(["creatives", "ideas", "travels"]),
+  title: PropTypes.string.isRequired,
+  created: PropTypes.string.isRequired,
+  travelName: PropTypes.string,
+  content: PropTypes.string.isRequired,
 };
 Card.defaultProps = {
-  cardType: "idea",
+  cardType: "ideas",
+  travelName: null,
 };
 export default Card;

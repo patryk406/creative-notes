@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 const Button = styled.button`
   /* background-color:#7294f3; */
-  background-color: ${({ theme }) => theme.idea};
+  background-color: ${({ theme }) => theme.ideas};
   border: none;
   border-radius: 50px;
   width: 150px;
