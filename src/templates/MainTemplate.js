@@ -1,18 +1,35 @@
-import { ThemeProvider } from "styled-components";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import { withRouter } from "react-router";
+import { ThemeProvider } from "styled-components";
+
 import Card from "components/molecules/Card/Card";
 import GlobalStyle from "theme/GlobalStyle";
 import { theme } from "theme/mainTheme";
+import PageContext from "context";
 
-const MainTemplate = ({ children }) => {
+const MainTemplate = ({ children, ...props }) => {
+  const [pageType, setPageType] = useState("ideas");
+
+  const pageTypes = ["ideas", "creatives", "travels"];
+  const {
+    location: { pathname },
+  } = props;
+  const [currentPage] = pageTypes.filter((page) => pathname.includes(page));
+  useEffect(() => {
+    setPageType(currentPage);
+  }, [currentPage]);
+
   return (
     <div>
-      <GlobalStyle />
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+      <PageContext.Provider value={pageType}>
+        <GlobalStyle />
+        <ThemeProvider theme={theme}>{children}</ThemeProvider>
+      </PageContext.Provider>
     </div>
   );
 };
 MainTemplate.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.arrayOf(PropTypes.object),
 };
-export default MainTemplate;
+export default withRouter(MainTemplate);

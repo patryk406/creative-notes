@@ -2,10 +2,12 @@ import styled, { css } from "styled-components";
 import { Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useState } from "react";
+import { connect } from "react-redux";
 
 import Paragraph from "components/atoms/Paragraph/Paragraph";
 import Button from "components/atoms/Button/Button";
 import Heading from "components/atoms/Heading/Heading";
+import { removeItem as removeItemAction } from "actions";
 
 import Merph from "assets/avatars/Merph.png";
 import Nareth from "assets/avatars/Nareth.png";
@@ -13,6 +15,7 @@ import Osma from "assets/avatars/Osma.png";
 import Seth from "assets/avatars/Seth.png";
 import Bulb from "assets/icons/bulb.png";
 import SmokeIcon from "assets/icons/smoke.png";
+import withContext from "hoc/withContext";
 
 const CART_TYPE = {
   creatives: "CREATIVES",
@@ -88,42 +91,55 @@ const StyledBulbButton = styled.a`
   background-size: 60%;
   background-position: 50%;
 `;
-const Card = (props) => {
-  const { id, cardType, title, created, travelName, content } = props;
+const Card = ({
+  id,
+  pageContext,
+  title,
+  created,
+  travelName,
+  content,
+  removeItem,
+}) => {
   const [redirect, setRedirect] = useState(false);
   const handleCardClick = () => {
     setRedirect(true);
   };
   if (redirect) {
-    return <Redirect to={`${cardType}/${id}`} />;
+    return <Redirect to={`${pageContext}/${id}`} />;
   }
 
   return (
     <StyledWrapper onClick={handleCardClick}>
-      <InnerWrapper activeColor={cardType}>
+      <InnerWrapper activeColor={pageContext}>
         <StyledHeading>{title}</StyledHeading>
         <DateInfo>{created}</DateInfo>
-        {cardType === "travels" && <StyledAvatar src={travelName} />}
-        {cardType === "creatives" && <StyledMagic src={SmokeIcon} />}
-        {cardType === "ideas" && <StyledBulbButton href="/" />}
+        {pageContext === "travels" && <StyledAvatar src={travelName} />}
+        {pageContext === "creatives" && <StyledMagic src={SmokeIcon} />}
+        {pageContext === "ideas" && <StyledBulbButton href="/" />}
       </InnerWrapper>
       <InnerWrapper flex>
         <Paragraph>{content}</Paragraph>
-        <Button secondary>remove</Button>
+        <Button onClick={() => removeItem(pageContext, id)} secondary>
+          remove
+        </Button>
       </InnerWrapper>
     </StyledWrapper>
   );
 };
 
 Card.propTypes = {
-  cardType: PropTypes.oneOf(["creatives", "ideas", "travels"]),
+  pageContext: PropTypes.oneOf(["creatives", "ideas", "travels"]),
   title: PropTypes.string.isRequired,
   created: PropTypes.string.isRequired,
   travelName: PropTypes.string,
   content: PropTypes.string.isRequired,
+  removeItem: PropTypes.func.isRequired,
 };
 Card.defaultProps = {
-  cardType: "ideas",
+  pageContext: "ideas",
   travelName: null,
 };
-export default Card;
+const mapDispatchToProps = (dispatch) => ({
+  removeItem: (itemType, id) => dispatch(removeItemAction(itemType, id)),
+});
+export default connect(null, mapDispatchToProps)(withContext(Card));

@@ -1,57 +1,14 @@
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import GridTemplate from "templates/GridTemplate";
 import Card from "components/molecules/Card/Card";
-const creatives = [
-  {
-    id: 1,
 
-    title: "New Atlantis",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lobortis mi mollis aliquet fringilla. Sed pulvinar vel ex sed facilisis. Vestibulum eu nunc sed sem lacinia tempus. Phasellus ac condimentum purus. Sed fermentum venenatis nisl. Morbi hendrerit justo sollicitudin erat aliquet sodales. Vivamus augue augue, mattis eget nunc et, ultricies suscipit elit. Aliquam sed condimentum odio. Nulla elit est, sodales sodales eleifend at, congue sed eros. Duis at sagittis massa.",
-    created: `${new Date().toLocaleDateString()}`,
-  },
-  {
-    id: 2,
-    title: "Guild",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lobortis mi mollis aliquet fringilla. Sed pulvinar vel ex sed facilisis. Vestibulum eu nunc sed sem lacinia tempus. Phasellus ac condimentum purus. Sed fermentum venenatis nisl. Morbi hendrerit justo sollicitudin erat aliquet sodales. Vivamus augue augue, mattis eget nunc et, ultricies suscipit elit. Aliquam sed condimentum odio. Nulla elit est, sodales sodales eleifend at, congue sed eros. Duis at sagittis massa.",
-    created: `${new Date().toLocaleDateString()}`,
-  },
-  {
-    id: 3,
-    title: "Assets",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lobortis mi mollis aliquet fringilla. Sed pulvinar vel ex sed facilisis. Vestibulum eu nunc sed sem lacinia tempus. Phasellus ac condimentum purus. Sed fermentum venenatis nisl. Morbi hendrerit justo sollicitudin erat aliquet sodales. Vivamus augue augue, mattis eget nunc et, ultricies suscipit elit. Aliquam sed condimentum odio. Nulla elit est, sodales sodales eleifend at, congue sed eros. Duis at sagittis massa.",
-    created: `${new Date().toLocaleDateString()}`,
-  },
-  {
-    id: 4,
-    title: "Cosmos",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lobortis mi mollis aliquet fringilla. Sed pulvinar vel ex sed facilisis. Vestibulum eu nunc sed sem lacinia tempus. Phasellus ac condimentum purus. Sed fermentum venenatis nisl. Morbi hendrerit justo sollicitudin erat aliquet sodales. Vivamus augue augue, mattis eget nunc et, ultricies suscipit elit. Aliquam sed condimentum odio. Nulla elit est, sodales sodales eleifend at, congue sed eros. Duis at sagittis massa.",
-    created: `${new Date().toLocaleDateString()}`,
-  },
-  {
-    id: 5,
-    title: "Stars",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lobortis mi mollis aliquet fringilla. Sed pulvinar vel ex sed facilisis. Vestibulum eu nunc sed sem lacinia tempus. Phasellus ac condimentum purus. Sed fermentum venenatis nisl. Morbi hendrerit justo sollicitudin erat aliquet sodales. Vivamus augue augue, mattis eget nunc et, ultricies suscipit elit. Aliquam sed condimentum odio. Nulla elit est, sodales sodales eleifend at, congue sed eros. Duis at sagittis massa.",
-    created: `${new Date().toLocaleDateString()}`,
-  },
-  {
-    id: 6,
-    title: "Locations",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lobortis mi mollis aliquet fringilla. Sed pulvinar vel ex sed facilisis. Vestibulum eu nunc sed sem lacinia tempus. Phasellus ac condimentum purus. Sed fermentum venenatis nisl. Morbi hendrerit justo sollicitudin erat aliquet sodales. Vivamus augue augue, mattis eget nunc et, ultricies suscipit elit. Aliquam sed condimentum odio. Nulla elit est, sodales sodales eleifend at, congue sed eros. Duis at sagittis massa.",
-    created: `${new Date().toLocaleDateString()}`,
-  },
-];
-const Articles = () => {
+const Creatives = ({ creatives }) => {
   return (
-    <GridTemplate pageType="creatives">
+    <GridTemplate>
       {creatives.map(({ title, content, created, id }) => (
         <Card
           id={id}
-          cardType="creatives"
           title={title}
           content={content}
           created={created}
@@ -61,5 +18,18 @@ const Articles = () => {
     </GridTemplate>
   );
 };
-
-export default Articles;
+Creatives.propTypes = {
+  creatives: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      content: PropTypes.string.isRequired,
+      created: PropTypes.string.isRequired,
+    })
+  ),
+};
+Creatives.defaultProps = {
+  creatives: [],
+};
+const mapStateToProps = ({ creatives }) => ({ creatives });
+export default connect(mapStateToProps)(Creatives);

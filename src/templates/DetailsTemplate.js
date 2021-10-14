@@ -8,7 +8,7 @@ import Paragraph from "components/atoms/Paragraph/Paragraph";
 import Button from "components/atoms/Button/Button";
 
 import OsmaIcon from "assets/avatars/Osma.png";
-
+import withContext from "hoc/withContext";
 const StyledDetailWrapper = styled.div`
   position: relative;
   display: flex;
@@ -45,23 +45,23 @@ const StyledButton = styled(Button)`
   font-weight: bold;
 `;
 const DetailsTemplate = ({
-  pageType,
   title,
   content,
   id,
   created,
   travelName,
+  pageContext,
 }) => {
   return (
-    <UserPageTemplate pageType={pageType}>
+    <UserPageTemplate>
       <StyledDetailWrapper>
         <StyledHeadingWrapper>
           <Heading>{title}</Heading>
           <Paragraph>
-            {pageType}, {created}
+            {pageContext}, {created}
           </Paragraph>
         </StyledHeadingWrapper>
-        <StyledIcon src={OsmaIcon} activeColor={pageType} />
+        <StyledIcon src={OsmaIcon} activeColor={pageContext} />
         <StyledContent>{content}</StyledContent>
         <StyledButton as={Link} to="/">
           back/save
@@ -72,7 +72,7 @@ const DetailsTemplate = ({
 };
 
 DetailsTemplate.propTypes = {
-  pageType: PropTypes.string.isRequired,
+  pageContext: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
@@ -80,11 +80,11 @@ DetailsTemplate.propTypes = {
   travelName: PropTypes.string,
 };
 DetailsTemplate.defaultProps = {
-  pageType: "",
+  pageContext: "",
   title: "",
   content: "",
   id: "",
   created: "",
   travelName: "",
 };
-export default DetailsTemplate;
+export default withContext(DetailsTemplate);
