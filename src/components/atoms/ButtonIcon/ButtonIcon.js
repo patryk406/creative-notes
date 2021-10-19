@@ -8,7 +8,7 @@ const ButtonIcon = styled.button`
   background-image: url(${({ icon }) => icon});
   background-size: 5rem;
   background-repeat: no-repeat;
-  background-position: 40%;
+  background-position: 50%;
   margin: 0.5rem;
   border: none;
 

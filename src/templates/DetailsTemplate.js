@@ -9,6 +9,7 @@ import Button from "components/atoms/Button/Button";
 
 import OsmaIcon from "assets/avatars/Osma.png";
 import withContext from "hoc/withContext";
+
 const StyledDetailWrapper = styled.div`
   position: relative;
   display: flex;
