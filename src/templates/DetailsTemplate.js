@@ -39,6 +39,7 @@ const StyledIcon = styled.img`
   right: 20%;
 `;
 const StyledButton = styled(Button)`
+  background-color: ${({ theme, activeColor }) => theme[activeColor]};
   text-align: center;
   color: black;
   text-decoration: none;
@@ -64,7 +65,7 @@ const DetailsTemplate = ({
         </StyledHeadingWrapper>
         <StyledIcon src={OsmaIcon} activeColor={pageContext} />
         <StyledContent>{content}</StyledContent>
-        <StyledButton as={Link} to="/">
+        <StyledButton as={Link} to="/" activeColor={pageContext}>
           back/save
         </StyledButton>
       </StyledDetailWrapper>
