@@ -16,7 +16,6 @@ const Root = () => {
     <Provider store={store}>
       <BrowserRouter>
         <MainTemplate>
-          <Sidebar />
           <Switch>
             <Route exact path={routes.login} component={LoginPage} />
             <Route exact path={routes.register} component={RegisterPage} />

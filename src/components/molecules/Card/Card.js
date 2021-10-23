@@ -50,12 +50,6 @@ const InnerWrapper = styled.div`
     `}
 `;
 
-const DateInfo = styled(Paragraph)`
-  margin: 0 0 5px;
-  font-weight: ${({ theme }) => theme.bold};
-  font-size: ${({ theme }) => theme.fontSize.xs};
-`;
-
 const StyledHeading = styled(Heading)`
   margin: 5px 0 0;
 `;
@@ -109,10 +103,9 @@ const Card = ({
   }
 
   return (
-    <StyledWrapper onClick={handleCardClick}>
-      <InnerWrapper activeColor={pageContext}>
+    <StyledWrapper>
+      <InnerWrapper onClick={handleCardClick} activeColor={pageContext}>
         <StyledHeading>{title}</StyledHeading>
-        <DateInfo>{created}</DateInfo>
         {pageContext === "travels" && <StyledAvatar src={Osma} />}
         {pageContext === "creatives" && <StyledMagic src={SmokeIcon} />}
         {pageContext === "ideas" && <StyledBulbButton href="/" />}
@@ -128,10 +121,9 @@ const Card = ({
 };
 
 Card.propTypes = {
+  id: PropTypes.string.isRequired,
   pageContext: PropTypes.oneOf(["creatives", "ideas", "travels"]),
   title: PropTypes.string.isRequired,
-  created: PropTypes.string.isRequired,
-  travelName: PropTypes.string,
   content: PropTypes.string.isRequired,
   removeItem: PropTypes.func.isRequired,
 };

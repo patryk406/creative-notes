@@ -16,7 +16,6 @@ const MainTemplate = ({ children, ...props }) => {
   const [currentPage] = pageTypes.filter((page) => pathname.includes(page));
   useEffect(() => {
     setPageType(currentPage);
-    console.log(currentPage);
   }, [currentPage]);
 
   return (
@@ -29,6 +28,6 @@ const MainTemplate = ({ children, ...props }) => {
   );
 };
 MainTemplate.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.object),
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.element]),
 };
 export default withRouter(MainTemplate);

@@ -1,30 +1,28 @@
+import { useEffect } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import GridTemplate from "templates/GridTemplate";
 import Card from "components/molecules/Card/Card";
-
-const Travels = ({ travels }) => {
+import { fetchItems } from "actions";
+const Travels = ({ travels, fetchTravels }) => {
+  useEffect(() => {
+    fetchTravels();
+  }, []);
   return (
     <GridTemplate>
-      {travels.map(({ title, content, created, id }) => (
-        <Card
-          id={id}
-          title={title}
-          content={content}
-          created={created}
-          key={id}
-        />
-      ))}
+      {travels &&
+        travels.map(({ title, content, _id: id }) => (
+          <Card id={id} title={title} content={content} key={id} />
+        ))}
     </GridTemplate>
   );
 };
 Travels.propTypes = {
   travels: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      _id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       content: PropTypes.string.isRequired,
-      created: PropTypes.string.isRequired,
     })
   ),
 };
@@ -32,5 +30,7 @@ Travels.defaultProps = {
   travels: [],
 };
 const mapStateToProps = ({ travels }) => ({ travels });
-
-export default connect(mapStateToProps)(Travels);
+const mapDispatchToProps = (dispatch) => ({
+  fetchTravels: () => dispatch(fetchItems("travels")),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Travels);

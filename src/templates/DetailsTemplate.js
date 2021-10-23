@@ -46,14 +46,7 @@ const StyledButton = styled(Button)`
   line-height: 3rem;
   font-weight: bold;
 `;
-const DetailsTemplate = ({
-  title,
-  content,
-  id,
-  created,
-  travelName,
-  pageContext,
-}) => {
+const DetailsTemplate = ({ title, content, created, pageContext }) => {
   return (
     <UserPageTemplate>
       <StyledDetailWrapper>
@@ -65,7 +58,11 @@ const DetailsTemplate = ({
         </StyledHeadingWrapper>
         <StyledIcon src={OsmaIcon} activeColor={pageContext} />
         <StyledContent>{content}</StyledContent>
-        <StyledButton as={Link} to="/" activeColor={pageContext}>
+        <StyledButton
+          as={Link}
+          to={`/${pageContext}`}
+          activeColor={pageContext}
+        >
           back/save
         </StyledButton>
       </StyledDetailWrapper>
@@ -77,16 +74,12 @@ DetailsTemplate.propTypes = {
   pageContext: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
-  created: PropTypes.string,
-  travelName: PropTypes.string,
+  id: PropTypes.string.isRequired,
 };
 DetailsTemplate.defaultProps = {
   pageContext: "",
   title: "",
   content: "",
   id: "",
-  created: "",
-  travelName: "",
 };
 export default withContext(DetailsTemplate);
