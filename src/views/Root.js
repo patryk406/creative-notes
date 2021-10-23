@@ -9,6 +9,8 @@ import Travels from "views/Travels";
 import Creatives from "views/Creatives";
 import Ideas from "views/Ideas";
 import DetailsPage from "views/DetailsPage";
+import LoginPage from "views/LoginPage";
+import RegisterPage from "views/RegisterPage";
 const Root = () => {
   return (
     <Provider store={store}>
@@ -16,6 +18,8 @@ const Root = () => {
         <MainTemplate>
           <Sidebar />
           <Switch>
+            <Route exact path={routes.login} component={LoginPage} />
+            <Route exact path={routes.register} component={RegisterPage} />
             <Route
               exact
               path={routes.home}

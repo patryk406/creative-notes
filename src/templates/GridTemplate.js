@@ -79,9 +79,10 @@ const GridTemplate = ({ children, pageContext }) => {
 
 GridTemplate.propTypes = {
   children: PropTypes.arrayOf(PropTypes.object).isRequired,
+  pageContext: PropTypes.oneOf(["ideas", "travels", "creatives"]),
 };
 
 UserPageTemplate.defaultProps = {
-  pageType: "ideas",
+  pageContext: "ideas",
 };
 export default withContext(GridTemplate);

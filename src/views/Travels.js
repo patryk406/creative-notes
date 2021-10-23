@@ -6,11 +6,10 @@ import Card from "components/molecules/Card/Card";
 const Travels = ({ travels }) => {
   return (
     <GridTemplate>
-      {travels.map(({ title, travelName, content, created, id }) => (
+      {travels.map(({ title, content, created, id }) => (
         <Card
           id={id}
           title={title}
-          travelName={travelName}
           content={content}
           created={created}
           key={id}
@@ -24,7 +23,6 @@ Travels.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
-      travelName: PropTypes.string.isRequired,
       content: PropTypes.string.isRequired,
       created: PropTypes.string.isRequired,
     })

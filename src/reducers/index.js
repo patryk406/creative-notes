@@ -1,145 +1,97 @@
 const initialState = {
-  ideas: [
-    {
-      id: 1,
-      title: "New Atlantis",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lobortis mi mollis aliquet fringilla. Sed pulvinar vel ex sed facilisis. Vestibulum eu nunc sed sem lacinia tempus. Phasellus ac condimentum purus. Sed fermentum venenatis nisl. Morbi hendrerit justo sollicitudin erat aliquet sodales. Vivamus augue augue, mattis eget nunc et, ultricies suscipit elit. Aliquam sed condimentum odio. Nulla elit est, sodales sodales eleifend at, congue sed eros. Duis at sagittis massa.",
-      created: `${new Date().toLocaleDateString()}`,
-    },
-    {
-      id: 2,
-      title: "Guild",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lobortis mi mollis aliquet fringilla. Sed pulvinar vel ex sed facilisis. Vestibulum eu nunc sed sem lacinia tempus. Phasellus ac condimentum purus. Sed fermentum venenatis nisl. Morbi hendrerit justo sollicitudin erat aliquet sodales. Vivamus augue augue, mattis eget nunc et, ultricies suscipit elit. Aliquam sed condimentum odio. Nulla elit est, sodales sodales eleifend at, congue sed eros. Duis at sagittis massa.",
-      created: `${new Date().toLocaleDateString()}`,
-    },
-    {
-      id: 3,
-      title: "Assets",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lobortis mi mollis aliquet fringilla. Sed pulvinar vel ex sed facilisis. Vestibulum eu nunc sed sem lacinia tempus. Phasellus ac condimentum purus. Sed fermentum venenatis nisl. Morbi hendrerit justo sollicitudin erat aliquet sodales. Vivamus augue augue, mattis eget nunc et, ultricies suscipit elit. Aliquam sed condimentum odio. Nulla elit est, sodales sodales eleifend at, congue sed eros. Duis at sagittis massa.",
-      created: `${new Date().toLocaleDateString()}`,
-    },
-    {
-      id: 4,
-      title: "Cosmos",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lobortis mi mollis aliquet fringilla. Sed pulvinar vel ex sed facilisis. Vestibulum eu nunc sed sem lacinia tempus. Phasellus ac condimentum purus. Sed fermentum venenatis nisl. Morbi hendrerit justo sollicitudin erat aliquet sodales. Vivamus augue augue, mattis eget nunc et, ultricies suscipit elit. Aliquam sed condimentum odio. Nulla elit est, sodales sodales eleifend at, congue sed eros. Duis at sagittis massa.",
-      created: `${new Date().toLocaleDateString()}`,
-    },
-    {
-      id: 5,
-      title: "Stars",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lobortis mi mollis aliquet fringilla. Sed pulvinar vel ex sed facilisis. Vestibulum eu nunc sed sem lacinia tempus. Phasellus ac condimentum purus. Sed fermentum venenatis nisl. Morbi hendrerit justo sollicitudin erat aliquet sodales. Vivamus augue augue, mattis eget nunc et, ultricies suscipit elit. Aliquam sed condimentum odio. Nulla elit est, sodales sodales eleifend at, congue sed eros. Duis at sagittis massa.",
-      created: `${new Date().toLocaleDateString()}`,
-    },
-    {
-      id: 6,
-      title: "Locations",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lobortis mi mollis aliquet fringilla. Sed pulvinar vel ex sed facilisis. Vestibulum eu nunc sed sem lacinia tempus. Phasellus ac condimentum purus. Sed fermentum venenatis nisl. Morbi hendrerit justo sollicitudin erat aliquet sodales. Vivamus augue augue, mattis eget nunc et, ultricies suscipit elit. Aliquam sed condimentum odio. Nulla elit est, sodales sodales eleifend at, congue sed eros. Duis at sagittis massa.",
-      created: `${new Date().toLocaleDateString()}`,
-    },
-  ],
   travels: [
     {
       id: 1,
-      title: "New Atlantis",
+      title: "Hello Roman",
       content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lobortis mi mollis aliquet fringilla. Sed pulvinar vel ex sed facilisis. Vestibulum eu nunc sed sem lacinia tempus. Phasellus ac condimentum purus. Sed fermentum venenatis nisl. Morbi hendrerit justo sollicitudin erat aliquet sodales. Vivamus augue augue, mattis eget nunc et, ultricies suscipit elit. Aliquam sed condimentum odio. Nulla elit est, sodales sodales eleifend at, congue sed eros. Duis at sagittis massa.",
-      created: `${new Date().toLocaleDateString()}`,
-      travelName: "Seth",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi",
+      created: "1 day",
     },
     {
       id: 2,
-      title: "Guild",
+      title: "Redux guy",
       content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lobortis mi mollis aliquet fringilla. Sed pulvinar vel ex sed facilisis. Vestibulum eu nunc sed sem lacinia tempus. Phasellus ac condimentum purus. Sed fermentum venenatis nisl. Morbi hendrerit justo sollicitudin erat aliquet sodales. Vivamus augue augue, mattis eget nunc et, ultricies suscipit elit. Aliquam sed condimentum odio. Nulla elit est, sodales sodales eleifend at, congue sed eros. Duis at sagittis massa.",
-      created: `${new Date().toLocaleDateString()}`,
-      travelName: "Merph",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi",
+      created: "1 day",
     },
     {
       id: 3,
-      title: "Assets",
+      title: "React router stuff",
       content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lobortis mi mollis aliquet fringilla. Sed pulvinar vel ex sed facilisis. Vestibulum eu nunc sed sem lacinia tempus. Phasellus ac condimentum purus. Sed fermentum venenatis nisl. Morbi hendrerit justo sollicitudin erat aliquet sodales. Vivamus augue augue, mattis eget nunc et, ultricies suscipit elit. Aliquam sed condimentum odio. Nulla elit est, sodales sodales eleifend at, congue sed eros. Duis at sagittis massa.",
-      created: `${new Date().toLocaleDateString()}`,
-      travelName: "Nereth",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi",
+      created: "5 days",
     },
     {
       id: 4,
-      title: "Cosmos",
+      title: "Super animacje!",
       content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lobortis mi mollis aliquet fringilla. Sed pulvinar vel ex sed facilisis. Vestibulum eu nunc sed sem lacinia tempus. Phasellus ac condimentum purus. Sed fermentum venenatis nisl. Morbi hendrerit justo sollicitudin erat aliquet sodales. Vivamus augue augue, mattis eget nunc et, ultricies suscipit elit. Aliquam sed condimentum odio. Nulla elit est, sodales sodales eleifend at, congue sed eros. Duis at sagittis massa.",
-      created: `${new Date().toLocaleDateString()}`,
-      travelName: "Merph",
-    },
-    {
-      id: 5,
-      title: "Stars",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lobortis mi mollis aliquet fringilla. Sed pulvinar vel ex sed facilisis. Vestibulum eu nunc sed sem lacinia tempus. Phasellus ac condimentum purus. Sed fermentum venenatis nisl. Morbi hendrerit justo sollicitudin erat aliquet sodales. Vivamus augue augue, mattis eget nunc et, ultricies suscipit elit. Aliquam sed condimentum odio. Nulla elit est, sodales sodales eleifend at, congue sed eros. Duis at sagittis massa.",
-      created: `${new Date().toLocaleDateString()}`,
-      travelName: "Osma",
-    },
-    {
-      id: 6,
-      title: "Locations",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lobortis mi mollis aliquet fringilla. Sed pulvinar vel ex sed facilisis. Vestibulum eu nunc sed sem lacinia tempus. Phasellus ac condimentum purus. Sed fermentum venenatis nisl. Morbi hendrerit justo sollicitudin erat aliquet sodales. Vivamus augue augue, mattis eget nunc et, ultricies suscipit elit. Aliquam sed condimentum odio. Nulla elit est, sodales sodales eleifend at, congue sed eros. Duis at sagittis massa.",
-      created: `${new Date().toLocaleDateString()}`,
-      travelName: "Seth",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi",
+      created: "10 days",
     },
   ],
   creatives: [
     {
       id: 1,
-      title: "New Atlantis",
+      title: "React on my mind",
       content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lobortis mi mollis aliquet fringilla. Sed pulvinar vel ex sed facilisis. Vestibulum eu nunc sed sem lacinia tempus. Phasellus ac condimentum purus. Sed fermentum venenatis nisl. Morbi hendrerit justo sollicitudin erat aliquet sodales. Vivamus augue augue, mattis eget nunc et, ultricies suscipit elit. Aliquam sed condimentum odio. Nulla elit est, sodales sodales eleifend at, congue sed eros. Duis at sagittis massa.",
-      created: `${new Date().toLocaleDateString()}`,
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi",
+      created: "1 day",
     },
     {
       id: 2,
-      title: "Guild",
+      title: "Wish you React",
       content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lobortis mi mollis aliquet fringilla. Sed pulvinar vel ex sed facilisis. Vestibulum eu nunc sed sem lacinia tempus. Phasellus ac condimentum purus. Sed fermentum venenatis nisl. Morbi hendrerit justo sollicitudin erat aliquet sodales. Vivamus augue augue, mattis eget nunc et, ultricies suscipit elit. Aliquam sed condimentum odio. Nulla elit est, sodales sodales eleifend at, congue sed eros. Duis at sagittis massa.",
-      created: `${new Date().toLocaleDateString()}`,
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi",
+      created: "1 day",
     },
     {
       id: 3,
-      title: "Assets",
+      title: "You gave React a bad name",
       content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lobortis mi mollis aliquet fringilla. Sed pulvinar vel ex sed facilisis. Vestibulum eu nunc sed sem lacinia tempus. Phasellus ac condimentum purus. Sed fermentum venenatis nisl. Morbi hendrerit justo sollicitudin erat aliquet sodales. Vivamus augue augue, mattis eget nunc et, ultricies suscipit elit. Aliquam sed condimentum odio. Nulla elit est, sodales sodales eleifend at, congue sed eros. Duis at sagittis massa.",
-      created: `${new Date().toLocaleDateString()}`,
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi",
+      created: "5 days",
     },
     {
       id: 4,
-      title: "Cosmos",
+      title: "Is it React you looking for?",
       content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lobortis mi mollis aliquet fringilla. Sed pulvinar vel ex sed facilisis. Vestibulum eu nunc sed sem lacinia tempus. Phasellus ac condimentum purus. Sed fermentum venenatis nisl. Morbi hendrerit justo sollicitudin erat aliquet sodales. Vivamus augue augue, mattis eget nunc et, ultricies suscipit elit. Aliquam sed condimentum odio. Nulla elit est, sodales sodales eleifend at, congue sed eros. Duis at sagittis massa.",
-      created: `${new Date().toLocaleDateString()}`,
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi",
+      created: "10 days",
+    },
+  ],
+  ideas: [
+    {
+      id: 1,
+      title: "Wake me up when Vue ends",
+      content:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi",
+      created: "1 day",
     },
     {
-      id: 5,
-      title: "Stars",
+      id: 2,
+      title: "Como es An Gular?",
       content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lobortis mi mollis aliquet fringilla. Sed pulvinar vel ex sed facilisis. Vestibulum eu nunc sed sem lacinia tempus. Phasellus ac condimentum purus. Sed fermentum venenatis nisl. Morbi hendrerit justo sollicitudin erat aliquet sodales. Vivamus augue augue, mattis eget nunc et, ultricies suscipit elit. Aliquam sed condimentum odio. Nulla elit est, sodales sodales eleifend at, congue sed eros. Duis at sagittis massa.",
-      created: `${new Date().toLocaleDateString()}`,
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi",
+      created: "1 day",
     },
     {
-      id: 6,
-      title: "Locations",
+      id: 3,
+      title: "Du bist Reactish",
       content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lobortis mi mollis aliquet fringilla. Sed pulvinar vel ex sed facilisis. Vestibulum eu nunc sed sem lacinia tempus. Phasellus ac condimentum purus. Sed fermentum venenatis nisl. Morbi hendrerit justo sollicitudin erat aliquet sodales. Vivamus augue augue, mattis eget nunc et, ultricies suscipit elit. Aliquam sed condimentum odio. Nulla elit est, sodales sodales eleifend at, congue sed eros. Duis at sagittis massa.",
-      created: `${new Date().toLocaleDateString()}`,
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi",
+      created: "5 days",
+    },
+    {
+      id: 4,
+      title: "Reactuj się kto moze!",
+      content:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi",
+      created: "10 days",
     },
   ],
 };
 
-const rootReducer = (state = initialState, action) => {
+const notesReducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_ITEM":
       return {
@@ -163,4 +115,4 @@ const rootReducer = (state = initialState, action) => {
   }
 };
 
-export default rootReducer;
+export default notesReducer;

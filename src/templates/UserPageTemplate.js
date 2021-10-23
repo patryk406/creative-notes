@@ -1,11 +1,15 @@
 import PropTypes from "prop-types";
 import Sidebar from "components/organisms/Sidebar/Sidebar";
+import styled from "styled-components";
+const StyledWrapper = styled.div`
+  padding-left: 150px;
+`;
 const UserPageTemplate = ({ children }) => {
   return (
-    <>
+    <StyledWrapper>
       <Sidebar />
       {children}
-    </>
+    </StyledWrapper>
   );
 };
 

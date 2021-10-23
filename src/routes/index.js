@@ -6,4 +6,6 @@ export const routes = {
   idea: "/ideas/:id",
   travel: "/travels/:id",
   creative: "/creatives/:id",
+  login: "/login",
+  register: "/register",
 };

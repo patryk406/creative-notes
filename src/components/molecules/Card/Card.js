@@ -113,7 +113,7 @@ const Card = ({
       <InnerWrapper activeColor={pageContext}>
         <StyledHeading>{title}</StyledHeading>
         <DateInfo>{created}</DateInfo>
-        {pageContext === "travels" && <StyledAvatar src={travelName} />}
+        {pageContext === "travels" && <StyledAvatar src={Osma} />}
         {pageContext === "creatives" && <StyledMagic src={SmokeIcon} />}
         {pageContext === "ideas" && <StyledBulbButton href="/" />}
       </InnerWrapper>

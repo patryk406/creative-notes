@@ -1,3 +1,4 @@
+import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 export const removeItem = (itemType, id) => ({
   type: "REMOVE_ITEM",
@@ -15,4 +16,8 @@ export const addItem = (itemType, itemContent) => {
       },
     },
   };
+};
+export const authenticate = (username, password) => (dispatch) => {
+  dispatch({ type: "AUTHENTICATE_REQUEST" });
+  axios.post("");
 };
