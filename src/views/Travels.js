@@ -5,12 +5,12 @@ import GridTemplate from "templates/GridTemplate";
 import Card from "components/molecules/Card/Card";
 import { fetchItems } from "actions";
 const Travels = ({ travels, fetchTravels }) => {
-  console.log(travels.length);
+  const notesLenght = travels.length;
   useEffect(() => {
     fetchTravels();
   }, []);
   return (
-    <GridTemplate>
+    <GridTemplate length={notesLenght}>
       {travels.map(({ title, content, _id: id }) => (
         <Card id={id} title={title} content={content} key={id} />
       ))}

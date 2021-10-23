@@ -7,7 +7,9 @@ import Heading from "components/atoms/Heading/Heading";
 import Paragraph from "components/atoms/Paragraph/Paragraph";
 import Button from "components/atoms/Button/Button";
 
-import OsmaIcon from "assets/avatars/Osma.png";
+import NarethIcon from "assets/avatars/Nareth.png";
+import Bulb from "assets/icons/bulb.png";
+import SmokeIcon from "assets/icons/smoke.png";
 import withContext from "hoc/withContext";
 
 const StyledDetailWrapper = styled.div`
@@ -33,35 +35,42 @@ const StyledIcon = styled.img`
   height: 8rem;
   width: 8rem;
   border-radius: 5rem;
-  border: 0.3rem ${({ theme, activeColor }) => theme[activeColor]} solid;
+  border: 0.3rem ${({ theme, acitvecolor }) => theme[acitvecolor]} solid;
+  padding: 0.5rem;
   position: absolute;
-  top: 20%;
-  right: 20%;
+  top: 10%;
+  right: 10%;
 `;
 const StyledButton = styled(Button)`
-  background-color: ${({ theme, activeColor }) => theme[activeColor]};
+  background-color: ${({ theme, acitvecolor }) => theme[acitvecolor]};
   text-align: center;
   color: black;
   text-decoration: none;
   line-height: 3rem;
   font-weight: bold;
 `;
-const DetailsTemplate = ({ title, content, created, pageContext }) => {
+const DetailsTemplate = ({ title, content, pageContext }) => {
   return (
     <UserPageTemplate>
       <StyledDetailWrapper>
         <StyledHeadingWrapper>
           <Heading>{title}</Heading>
-          <Paragraph>
-            {pageContext}, {created}
-          </Paragraph>
+          <Paragraph>{pageContext}</Paragraph>
         </StyledHeadingWrapper>
-        <StyledIcon src={OsmaIcon} activeColor={pageContext} />
+        {pageContext === "travels" && (
+          <StyledIcon src={NarethIcon} acitvecolor={pageContext} />
+        )}
+        {pageContext === "ideas" && (
+          <StyledIcon src={Bulb} acitvecolor={pageContext} />
+        )}
+        {pageContext === "creatives" && (
+          <StyledIcon src={SmokeIcon} acitvecolor={pageContext} />
+        )}
         <StyledContent>{content}</StyledContent>
         <StyledButton
           as={Link}
           to={`/${pageContext}`}
-          activeColor={pageContext}
+          acitvecolor={pageContext}
         >
           back/save
         </StyledButton>

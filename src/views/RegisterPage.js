@@ -33,9 +33,7 @@ const RegisterPage = () => (
   <AuthTemplate>
     <Formik
       initialValues={{ username: "", password: "" }}
-      onSubmit={({ username, password }) => {
-        console.log("hello");
-      }}
+      onSubmit={{ username, password }}
     >
       {({ handleChange, handleBlur, values }) => (
         <>

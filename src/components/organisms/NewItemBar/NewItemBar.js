@@ -36,6 +36,10 @@ const StyledTextArea = styled(Input)`
 `;
 const StyledButton = styled(Button)`
   background-color: ${({ activeColor, theme }) => theme[activeColor]};
+  &:hover {
+    cursor: pointer;
+    background-color: ${({ theme }) => theme.success};
+  }
 `;
 const NewItemBar = ({ pageContext, isVisible, addItem, handleClose }) => {
   return (

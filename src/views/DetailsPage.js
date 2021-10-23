@@ -23,7 +23,6 @@ const DetailsPage = ({ activeItem, match }) => {
         .catch((err) => console.log(err));
     }
   }, []);
-  console.log(detailItem);
   return (
     <DetailsTemplate
       title={detailItem.title}

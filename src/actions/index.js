@@ -31,7 +31,6 @@ export const removeItem = (itemType, id) => (dispatch) => {
       });
     })
     .catch((err) => {
-      console.log(err);
       dispatch({ type: REMOVE_ITEM_FAILED });
     });
 };
@@ -49,7 +48,6 @@ export const addItem = (itemType, itemContent) => (dispatch, getState) => {
       dispatch({ type: ADD_ITEM_SUCCESS, payload: { itemType, data } });
     })
     .catch((err) => {
-      console.log(err);
       dispatch({ type: ADD_ITEM_FAILED });
     });
 };
@@ -62,11 +60,9 @@ export const authenticate = (username, password) => (dispatch) => {
       password,
     })
     .then((payload) => {
-      console.log(payload);
       dispatch({ type: AUTHENTICATE_SUCCESS, payload });
     })
     .catch((err) => {
-      console.log(err);
       dispatch({ type: AUTHENTICATE_FAILED });
     });
 };
@@ -82,7 +78,6 @@ export const fetchItems = (itemType) => (dispatch, getState) => {
       },
     })
     .then(({ data }) => {
-      console.log(data);
       dispatch({
         type: FETCH_SUCCESS,
         payload: {
@@ -92,7 +87,6 @@ export const fetchItems = (itemType) => (dispatch, getState) => {
       });
     })
     .catch((err) => {
-      console.log(err);
       dispatch({ type: FETCH_FAILED });
     });
 };

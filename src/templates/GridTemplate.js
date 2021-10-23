@@ -48,11 +48,12 @@ const StyledButtonIcon = styled(ButtonIcon)`
   background-size: 60%;
   border-radius: 5rem;
   :hover {
-    background-color: #0dac61;
+    background-color: ${({ theme, visible }) =>
+      !visible ? theme.success : theme.warning};
     cursor: pointer;
   }
 `;
-const GridTemplate = ({ children, pageContext }) => {
+const GridTemplate = ({ children, pageContext, length }) => {
   const [isNewItemVisible, setIsNewItemVisible] = useState(false);
   const toggleAddItem = () => setIsNewItemVisible(!isNewItemVisible);
   return (
@@ -63,10 +64,13 @@ const GridTemplate = ({ children, pageContext }) => {
           <StyledHeading big as="h1">
             {pageContext}
           </StyledHeading>
-          <StyledParagraph>6 {pageContext}</StyledParagraph>
+          <StyledParagraph>
+            {length} {pageContext}
+          </StyledParagraph>
         </StyledPageHeader>
         <StyledGrid>{children}</StyledGrid>
         <StyledButtonIcon
+          visible={isNewItemVisible}
           activeColor={pageContext}
           icon={plusIcon}
           onClick={toggleAddItem}

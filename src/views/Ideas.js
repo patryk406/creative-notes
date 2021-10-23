@@ -6,11 +6,12 @@ import Card from "components/molecules/Card/Card";
 import { fetchItems } from "actions";
 
 const Ideas = ({ ideas, fetchIdeas }) => {
+  const notesLenght = ideas.length;
   useEffect(() => {
     fetchIdeas();
   }, []);
   return (
-    <GridTemplate>
+    <GridTemplate length={notesLenght}>
       {ideas.map(({ title, content, _id: id }) => (
         <Card id={id} title={title} content={content} key={id} />
       ))}

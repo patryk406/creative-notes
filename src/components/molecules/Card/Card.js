@@ -9,10 +9,7 @@ import Button from "components/atoms/Button/Button";
 import Heading from "components/atoms/Heading/Heading";
 import { removeItem as removeItemAction } from "actions";
 
-import Merph from "assets/avatars/Merph.png";
 import Nareth from "assets/avatars/Nareth.png";
-import Osma from "assets/avatars/Osma.png";
-import Seth from "assets/avatars/Seth.png";
 import Bulb from "assets/icons/bulb.png";
 import SmokeIcon from "assets/icons/smoke.png";
 import withContext from "hoc/withContext";
@@ -55,35 +52,40 @@ const StyledHeading = styled(Heading)`
 `;
 
 const StyledAvatar = styled.img`
-  height: 8rem;
-  width: 8rem;
-  border: 0.3rem solid ${({ theme }) => theme.ideas};
+  height: 6rem;
+  width: 6rem;
+  border: 0.3rem solid ${({ theme }) => theme.travels};
   position: absolute;
-  right: 2.5rem;
-  top: 2.5rem;
+  right: 1rem;
+  top: 4.5rem;
   border-radius: 5rem;
 `;
 
 const StyledMagic = styled.img`
-  height: 5rem;
-  width: 5rem;
-  border: 0.3rem solid ${({ theme }) => theme.creatives};
+  height: 4.8rem;
+  width: 4.8rem;
   position: absolute;
-  right: 2rem;
-  top: 4rem;
+  right: 1rem;
+  bottom: 2rem;
 `;
 
-const StyledBulbButton = styled.a`
+const StyledBulbButton = styled.i`
   display: block;
-  width: 4.7rem;
-  height: 4.7rem;
+  width: 4rem;
+  height: 4rem;
   border-radius: 5rem;
   position: absolute;
-  right: 2.5rem;
-  top: 2.5rem;
+  right: 0.5rem;
+  top: 0.5rem;
   background: white url(${Bulb}) no-repeat;
   background-size: 60%;
   background-position: 50%;
+`;
+const StyledRemoveButton = styled(Button)`
+  cursor: pointer;
+  &:hover {
+    background-color: ${({ theme }) => theme.warning};
+  }
 `;
 const Card = ({
   id,
@@ -106,15 +108,18 @@ const Card = ({
     <StyledWrapper>
       <InnerWrapper onClick={handleCardClick} activeColor={pageContext}>
         <StyledHeading>{title}</StyledHeading>
-        {pageContext === "travels" && <StyledAvatar src={Osma} />}
-        {pageContext === "creatives" && <StyledMagic src={SmokeIcon} />}
-        {pageContext === "ideas" && <StyledBulbButton href="/" />}
+        {pageContext === "travels" && <StyledAvatar src={Nareth} />}
+        {pageContext === "ideas" && <StyledBulbButton />}
       </InnerWrapper>
       <InnerWrapper flex>
         <Paragraph>{content}</Paragraph>
-        <Button onClick={() => removeItem(pageContext, id)} secondary>
+        <StyledRemoveButton
+          onClick={() => removeItem(pageContext, id)}
+          secondary
+        >
           remove
-        </Button>
+        </StyledRemoveButton>
+        {pageContext === "creatives" && <StyledMagic src={SmokeIcon} />}
       </InnerWrapper>
     </StyledWrapper>
   );
