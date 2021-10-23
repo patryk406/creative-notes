@@ -1,5 +1,7 @@
 import {
-  ADD_ITEM,
+  ADD_ITEM_REQUEST,
+  ADD_ITEM_SUCCESS,
+  ADD_ITEM_FAILED,
   REMOVE_ITEM_REQUEST,
   REMOVE_ITEM_SUCCESS,
   REMOVE_ITEM_FAILED,
@@ -26,12 +28,12 @@ const notesReducer = (state = initialState, action) => {
         ...state,
         userID: action.payload.data._id,
       };
-    case ADD_ITEM:
+    case ADD_ITEM_SUCCESS:
       return {
         ...state,
         [action.payload.itemType]: [
           ...state[action.payload.itemType],
-          action.payload.item,
+          action.payload.data,
         ],
       };
     case REMOVE_ITEM_SUCCESS:
