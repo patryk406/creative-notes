@@ -41,6 +41,10 @@ const StyledLogoLink = styled(NavLink)`
 `;
 
 const StyledLinksList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 40%;
   list-style: none;
   margin: 0;
   padding: 0;

@@ -18,7 +18,7 @@ const StyledWrapper = styled.div`
 `;
 const StyledGrid = styled.div`
   display: grid;
-  grid-gap: 8.5rem;
+  grid-gap: 3rem;
   grid-template-columns: repeat(3, 1fr);
 `;
 
@@ -51,6 +51,9 @@ const StyledButtonIcon = styled(ButtonIcon)`
     background-color: ${({ theme, visible }) =>
       !visible ? theme.success : theme.warning};
     cursor: pointer;
+    box-shadow: 0px 0px 40px -8px ${({ theme, visible }) => (!visible ? theme.success : theme.warning)};
+    transform: scale(1.2);
+    transition: transform 0.2s ease-in;
   }
 `;
 const GridTemplate = ({ children, pageContext, length }) => {

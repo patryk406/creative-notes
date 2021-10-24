@@ -12,9 +12,8 @@ import {
   FETCH_SUCCESS,
   FETCH_FAILED,
 } from "actions";
-const initialState = {
-  userID: "6173f27035150e6d489d6372",
-};
+
+const initialState = {};
 
 const notesReducer = (state = initialState, action) => {
   switch (action.type) {

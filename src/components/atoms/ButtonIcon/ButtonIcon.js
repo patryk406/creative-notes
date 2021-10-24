@@ -14,6 +14,13 @@ const ButtonIcon = styled.button`
 
   &.active {
     background-color: white;
+    box-shadow: 0px 0px 80px 8px ${({ theme }) => theme.azure};
+  }
+  &:hover {
+    transform: scale(1.3);
+    background-color: white;
+    box-shadow: inset 0px 0px 20px 0.5px ${({ theme }) => theme.azure};
+    transition: all 0.2s ease-in;
   }
 `;
 

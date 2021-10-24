@@ -46,7 +46,6 @@ const LoginPage = ({ userID, authenticate }) => (
         }
         return (
           <>
-            <Heading>{userID}</Heading>
             <Heading>Sign in</Heading>
             <StyledForm>
               <StyledInput
@@ -55,7 +54,7 @@ const LoginPage = ({ userID, authenticate }) => (
                 placeholder="Login"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.title}
+                value={values.username}
               />
               <StyledInput
                 type="password"
@@ -63,7 +62,7 @@ const LoginPage = ({ userID, authenticate }) => (
                 placeholder="Password"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.title}
+                value={values.password}
               />
               <Button activecolor="notes" type="submit">
                 sign in

@@ -7,6 +7,7 @@ export const theme = {
   grey300: "#b8b8b8",
   success: "#26de81",
   warning: "#fc5c65",
+  azure: "#00cec9",
   light: 300,
   regular: 400,
   bold: 600,
