@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import logoIcon from "assets/icons/logo.png";
 import Heading from "components/atoms/Heading/Heading";
+
 const StyledWrapper = styled.div`
   width: 100%;
   height: 100vh;

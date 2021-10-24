@@ -59,6 +59,7 @@ const StyledButtonIcon = styled(ButtonIcon)`
 const GridTemplate = ({ children, pageContext, length }) => {
   const [isNewItemVisible, setIsNewItemVisible] = useState(false);
   const toggleAddItem = () => setIsNewItemVisible(!isNewItemVisible);
+
   return (
     <UserPageTemplate>
       <StyledWrapper>
@@ -92,4 +93,5 @@ GridTemplate.propTypes = {
 UserPageTemplate.defaultProps = {
   pageContext: "ideas",
 };
+
 export default withContext(GridTemplate);

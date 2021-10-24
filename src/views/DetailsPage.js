@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import DetailsTemplate from "templates/DetailsTemplate";
-import { routes } from "routes";
-import withContext from "hoc/withContext";
-import { connect } from "react-redux";
 import axios from "axios";
+import { connect } from "react-redux";
+
+import DetailsTemplate from "templates/DetailsTemplate";
+import withContext from "hoc/withContext";
 
 const DetailsPage = ({ activeItem, match }) => {
   const [detailItem, setDeatilItem] = useState({
@@ -23,6 +23,7 @@ const DetailsPage = ({ activeItem, match }) => {
         .catch((err) => console.log(err));
     }
   }, []);
+
   return (
     <DetailsTemplate
       title={detailItem.title}

@@ -1,15 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import { Formik, Form } from "formik";
+import { Redirect, Link } from "react-router-dom";
+import { connect } from "react-redux";
+
+import { routes } from "routes";
+import { authenticate as authenticateAction } from "actions";
 import AuthTemplate from "templates/AuthTemplate";
 import Heading from "components/atoms/Heading/Heading";
 import Input from "components/atoms/Input/Input";
 import Button from "components/atoms/Button/Button";
-import { Link } from "react-router-dom";
-import { routes } from "routes";
-import { connect } from "react-redux";
-import { authenticate as authenticateAction } from "actions";
-import { Redirect } from "react-router-dom";
+
 const StyledForm = styled(Form)`
   display: flex;
   justify-content: center;
@@ -75,6 +76,7 @@ const LoginPage = ({ userID, authenticate }) => (
     </Formik>
   </AuthTemplate>
 );
+
 const mapStateToProps = ({ userID = null }) => ({
   userID,
 });

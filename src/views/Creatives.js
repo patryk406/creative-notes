@@ -1,15 +1,17 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+
+import { fetchItems } from "actions";
 import GridTemplate from "templates/GridTemplate";
 import Card from "components/molecules/Card/Card";
-import { fetchItems } from "actions";
 
 const Creatives = ({ creatives, fetchCreatives }) => {
   const notesLenght = creatives.length;
   useEffect(() => {
     fetchCreatives();
   }, []);
+
   return (
     <GridTemplate length={notesLenght}>
       {creatives.map(({ title, content, _id: id }) => (
@@ -18,6 +20,7 @@ const Creatives = ({ creatives, fetchCreatives }) => {
     </GridTemplate>
   );
 };
+
 Creatives.propTypes = {
   creatives: PropTypes.arrayOf(
     PropTypes.shape({
@@ -27,11 +30,14 @@ Creatives.propTypes = {
     })
   ),
 };
+
 Creatives.defaultProps = {
   creatives: [],
 };
+
 const mapStateToProps = ({ creatives }) => ({ creatives });
 const mapDispatchToProps = (dispatch) => ({
   fetchCreatives: () => dispatch(fetchItems("creatives")),
 });
+
 export default connect(mapStateToProps, mapDispatchToProps)(Creatives);

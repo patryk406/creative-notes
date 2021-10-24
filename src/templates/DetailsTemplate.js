@@ -21,16 +21,19 @@ const StyledDetailWrapper = styled.div`
   height: 90vh;
   width: 80%;
 `;
+
 const StyledHeadingWrapper = styled.div`
   position: absolute;
   top: 15%;
   left: 15%;
 `;
+
 const StyledContent = styled.div`
   padding: 10rem 0 0 0;
   width: 30%;
   text-align: center;
 `;
+
 const StyledIcon = styled.img`
   height: 8rem;
   width: 8rem;
@@ -41,6 +44,7 @@ const StyledIcon = styled.img`
   top: 10%;
   right: 10%;
 `;
+
 const StyledButton = styled(Button)`
   background-color: ${({ theme, acitvecolor }) => theme[acitvecolor]};
   text-align: center;
@@ -49,6 +53,7 @@ const StyledButton = styled(Button)`
   line-height: 3rem;
   font-weight: bold;
 `;
+
 const DetailsTemplate = ({ title, content, pageContext }) => {
   return (
     <UserPageTemplate>
@@ -85,10 +90,12 @@ DetailsTemplate.propTypes = {
   content: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
 };
+
 DetailsTemplate.defaultProps = {
   pageContext: "",
   title: "",
   content: "",
   id: "",
 };
+
 export default withContext(DetailsTemplate);

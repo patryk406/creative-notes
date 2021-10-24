@@ -1,15 +1,17 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+
+import { fetchItems } from "actions";
 import GridTemplate from "templates/GridTemplate";
 import Card from "components/molecules/Card/Card";
-import { fetchItems } from "actions";
 
 const Ideas = ({ ideas, fetchIdeas }) => {
   const notesLenght = ideas.length;
   useEffect(() => {
     fetchIdeas();
   }, []);
+
   return (
     <GridTemplate length={notesLenght}>
       {ideas.map(({ title, content, _id: id }) => (
@@ -18,6 +20,7 @@ const Ideas = ({ ideas, fetchIdeas }) => {
     </GridTemplate>
   );
 };
+
 Ideas.propTypes = {
   ideas: PropTypes.arrayOf(
     PropTypes.shape({
@@ -30,8 +33,10 @@ Ideas.propTypes = {
 Ideas.defaultProps = {
   ideas: [],
 };
+
 const mapStateToProps = ({ ideas }) => ({ ideas });
 const mapDispatchToProps = (dispatch) => ({
   fetchIdeas: () => dispatch(fetchItems("ideas")),
 });
+
 export default connect(mapStateToProps, mapDispatchToProps)(Ideas);

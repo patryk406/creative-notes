@@ -1,8 +1,9 @@
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
-import { routes } from "routes";
+
 import { store, persistor } from "store";
+import { routes } from "routes";
 import MainTemplate from "templates/MainTemplate";
 import Travels from "views/Travels";
 import Creatives from "views/Creatives";
